@@ -8,11 +8,16 @@
   <body>
     <section class="container content-section">
       <h2 class="section-header">Shopping cart</h2>
+      <hr />
       <div class="cart-row">
-        <span class="cart-item cart-header cart-column">Product details</span>
-        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-        <span class="cart-subtotal cart-header cart-column">TOTAL</span>
+        <span class="cart-item cart-header cart-column-title"
+          >PRODUCT DETAILS</span
+        >
+        <span class="cart-quantity cart-header cart-column-title"
+          >QUANTITY</span
+        >
+        <span class="cart-price cart-header cart-column-title">PRICE</span>
+        <span class="cart-subtotal cart-header cart-column-title">TOTAL</span>
       </div>
       <div class="cart-items">
         <div class="cart-row" id="0">
@@ -27,9 +32,9 @@
           </div>
 
           <div class="cart-quantity cart-column">
-            <div class="numerical-values">-</div>
-            <input class="cart-quantity-input" type="text" value="0" />
-            <div class="numerical-values">+</div>
+            <div class="numerical-values minus">-</div>
+            <input class="cart-quantity-input" disabled type="text" value="0" />
+            <div class="numerical-values plus">+</div>
           </div>
           <span class="cart-price cart-column">5€</span>
           <span class="cart-subtotal cart-column">0€</span>
@@ -46,14 +51,15 @@
           </div>
 
           <div class="cart-quantity cart-column">
-            <div class="numerical-values">-</div>
+            <div class="numerical-values minus">-</div>
             <input
               class="cart-quantity-input"
               id="naruto"
+              disabled
               type="text"
               value="0"
             />
-            <div class="numerical-values">+</div>
+            <div class="numerical-values plus">+</div>
           </div>
           <span class="cart-price cart-column">20€</span>
           <span class="cart-subtotal cart-column">0€</span>
@@ -71,14 +77,15 @@
           </div>
 
           <div class="cart-quantity cart-column">
-            <div class="numerical-values">-</div>
+            <div class="numerical-values minus">-</div>
             <input
               class="cart-quantity-input"
               id="luffy"
+              disabled
               type="text"
               value="0"
             />
-            <div class="numerical-values">+</div>
+            <div class="numerical-values plus">+</div>
           </div>
           <span class="cart-price cart-column">7.5€</span>
           <span class="cart-subtotal cart-column">0€</span>

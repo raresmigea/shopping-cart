@@ -12,6 +12,19 @@ $('#0')
       .text(quantity * price + '€');
   });
 
+function subTotal(element) {
+  console.log(element);
+  console.log(element.parents('.cart-row').attr('id'));
+  var quantity = element.siblings('.cart-quantity-input').val();
+  var price = parseFloat(
+    element.closest('.cart-row').find('.cart-price').text().replace('€', '')
+  );
+  $(element)
+    .closest('.cart-row')
+    .find('.cart-subtotal')
+    .text(price * quantity + '€');
+}
+
 $('#1')
   .find('.cart-quantity-input')
   .change(function () {
@@ -39,7 +52,7 @@ $('#2')
       .text(quantity * price + '€');
   });
 
-$(document).change(function () {
+function total() {
   console.log('muie');
   var subtotal0 = parseFloat(
     $('#0').find('.cart-subtotal').text().replace('€', '')
@@ -56,4 +69,28 @@ $(document).change(function () {
   var total = subtotal0 + subtotal1 + subtotal2;
 
   $('.cart-total-price').text(total + '€');
+}
+
+$('.plus').on('click', function () {
+  console.log('click');
+  // var thisId = $(this).parents('.cart-row').attr('id');
+  var increment = parseInt($(this).siblings('input').val());
+  increment++;
+  console.log($(this).siblings('input').val());
+  $(this).siblings('input').val(increment);
+  subTotal($(this));
+  total();
+});
+
+$('.minus').on('click', function () {
+  console.log('click');
+  // var thisId = $(this).parents('.cart-row').attr('id');
+  var decrement = parseInt($(this).siblings('input').val());
+  if (decrement) {
+    decrement--;
+  }
+  console.log($(this).siblings('input').val());
+  $(this).siblings('input').val(decrement);
+  subTotal($(this));
+  total();
 });
