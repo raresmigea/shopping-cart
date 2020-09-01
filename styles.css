@@ -308,11 +308,8 @@ body {
   padding: 0;
   text-align: center;
   font-size: 1.2em;
-  margin-right: 25px;
-}
-
-.cart-row:last-child {
-  /* border-bottom: 1px solid black; */
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .cart-row:last-child .cart-column {
@@ -341,4 +338,9 @@ body {
   display: block;
   margin: 40px auto 80px auto;
   font-size: 1.75em;
+}
+
+.numerical-values {
+  color: purple;
+  font-size: 34px;
 }
