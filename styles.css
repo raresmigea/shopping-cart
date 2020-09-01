@@ -83,7 +83,6 @@ body {
   padding: 0 1.5em;
 }
 .section-header {
-  font-family: 'Metal Mania';
   font-weight: normal;
   color: #333;
   text-align: center;
@@ -301,10 +300,10 @@ body {
 
 .cart-quantity-input {
   height: 34px;
-  width: 50px;
+  width: 34px;
   border-radius: 5px;
-  /* border: 1px solid #56ccf2; */
-  background-color: #eee;
+  border: 2px solid lightgray;
+  /* background-color: #eee; */
   color: #333;
   padding: 0;
   text-align: center;
