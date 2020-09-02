@@ -1,17 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
-@import url('https://fonts.googleapis.com/css?family=Metal+Mania');
-
-@font-face {
-  font-family: 'Booter - Zero Zero';
-  src: url('Fonts/Booter - Zero Zero.woff') format('woff'),
-    url('Fonts/Booter - Zero Zero.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   box-sizing: border-box;
-  font-family: Raleway;
+  font-family: sans-serif;
   color: #777;
 }
 
@@ -130,25 +119,46 @@ body {
 
 .cart-item {
   width: 55%;
+  font-size: 14px;
 }
 
 .cart-price {
+  display: flex;
+  justify-content: center;
   width: 15%;
-  font-size: 1.2em;
+  font-size: 14px;
 }
 
 .cart-quantity {
+  display: flex;
+  justify-content: center;
   width: 15%;
+  font-size: 14px;
 }
 
 .cart-subtotal {
+  display: flex;
+  justify-content: center;
   width: 15%;
+  font-size: 14px;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-item-title {
   color: purple;
-  margin-left: 0.5em;
-  font-size: 1.2em;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cart-item-description {
+  color: lightslategray;
+  margin-left: 10px;
+  font-size: 12px;
 }
 
 .cart-item-image {
