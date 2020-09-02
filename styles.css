@@ -223,6 +223,13 @@ body {
   padding: 17px 0px 0px 17px;
 }
 
+.items-and-total-final {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 0px 0px 0px;
+}
+
 .items-discount {
   display: flex;
   text-transform: uppercase;

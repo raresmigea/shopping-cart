@@ -55,9 +55,16 @@ function total() {
     $('#2').find('.cart-subtotal').text().replace('€', '')
   );
 
+  var quantity0 = parseFloat($('#0').find('.cart-quantity-input').val());
+  var quantity1 = parseFloat($('#1').find('.cart-quantity-input').val());
+  var quantity2 = parseFloat($('#2').find('.cart-quantity-input').val());
+
+  var totalQuantity = quantity0 + quantity1 + quantity2;
+
   var total = subtotal0 + subtotal1 + subtotal2;
 
   $('.cart-total-price').text(total + '€');
+  $('.items-number').text(totalQuantity + ' items');
 }
 
 // function total() {
