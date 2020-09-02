@@ -12,14 +12,6 @@ body {
   background-color: #261741;
 }
 
-.main-header {
-  background-color: rgba(0, 0, 0, 0.6);
-  background-image: url('Images/Header Background.jpg');
-  background-blend-mode: multiply;
-  background-size: cover;
-  padding-bottom: 30px;
-}
-
 .container {
   display: flex;
   width: 55%;
