@@ -41,12 +41,17 @@ body {
   background-color: lightgray;
   position: relative;
   width: 30%;
+  padding-left: 20px;
 }
 
 .section-header {
   font-weight: bold;
   color: #333;
-  font-size: 1.25em;
+  font-size: 18px;
+}
+
+.summary-title {
+  display: flex;
 }
 
 .cart-items {
@@ -65,29 +70,20 @@ body {
   position: absolute;
   background-color: purple;
   border: none;
-  border-radius: 0.3em;
+  border-radius: 4px;
   font-weight: bold;
   display: block;
-  font-size: 1.2em;
+  font-size: 16px;
   bottom: 20px;
+  width: 83%;
 }
 
 .btn-primary:hover {
   background-color: #000099;
 }
 
-.shop-item-title {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5em;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.shop-item-image {
-  height: 250px;
+.btn-line {
+  color: red;
 }
 
 .cart-header {
@@ -120,6 +116,7 @@ body {
 .cart-item {
   width: 55%;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .cart-price {
@@ -127,6 +124,7 @@ body {
   justify-content: center;
   width: 15%;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .cart-quantity {
@@ -134,6 +132,7 @@ body {
   justify-content: center;
   width: 15%;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .cart-subtotal {
@@ -141,6 +140,7 @@ body {
   justify-content: center;
   width: 15%;
   font-size: 14px;
+  text-transform: uppercase;
 }
 
 .item-info {
@@ -151,14 +151,14 @@ body {
 .cart-item-title {
   color: purple;
   margin-left: 10px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
 }
 
 .cart-item-description {
   color: lightslategray;
   margin-left: 10px;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .cart-item-image {
@@ -172,7 +172,6 @@ body {
   width: 34px;
   border-radius: 5px;
   border: 2px solid lightgray;
-  /* background-color: #eee; */
   color: #333;
   padding: 0;
   text-align: center;
@@ -192,10 +191,10 @@ body {
 }
 
 .cart-total-title {
-  font-weight: bold;
-  font-size: 1.5em;
+  font-size: 14px;
   color: black;
   margin-right: 20px;
+  text-transform: uppercase;
 }
 
 .cart-total-price {
@@ -210,4 +209,8 @@ body {
 
 .numerical-values:hover {
   cursor: pointer;
+}
+
+.items-number {
+  display: flex;
 }
