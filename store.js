@@ -9,17 +9,6 @@ $('#0')
       .text(quantity * price + '€');
   });
 
-function subTotal(element) {
-  var quantity = element.siblings('.cart-quantity-input').val();
-  var price = parseFloat(
-    element.closest('.cart-row').find('.cart-price').text().replace('€', '')
-  );
-  $(element)
-    .closest('.cart-row')
-    .find('.cart-subtotal')
-    .text(price * quantity + '€');
-}
-
 $('#1')
   .find('.cart-quantity-input')
   .change(function () {
@@ -42,6 +31,19 @@ $('#2')
       .text(quantity * price + '€');
   });
 
+// compute subtotal sum
+function subTotal(element) {
+  var quantity = element.siblings('.cart-quantity-input').val();
+  var price = parseFloat(
+    element.closest('.cart-row').find('.cart-price').text().replace('€', '')
+  );
+  $(element)
+    .closest('.cart-row')
+    .find('.cart-subtotal')
+    .text(price * quantity + '€');
+}
+
+// compute total sum and number of items
 function computeTotalValues() {
   const total = [...$('.cart-items .cart-subtotal')]
     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
@@ -55,6 +57,7 @@ function computeTotalValues() {
   $('.items-number').text(totalQuantity + ' items');
 }
 
+// increase number of items
 $('.plus').on('click', function () {
   var increment = parseInt($(this).siblings('input').val());
   increment++;
@@ -63,6 +66,7 @@ $('.plus').on('click', function () {
   computeTotalValues();
 });
 
+// decrease number of items
 $('.minus').on('click', function () {
   var decrement = parseInt($(this).siblings('input').val());
   if (decrement) {
@@ -73,6 +77,7 @@ $('.minus').on('click', function () {
   computeTotalValues();
 });
 
+// checkout button clicked
 $('.btn-primary').on('click', function () {
   if (
     confirm('Are you sure you want to checkout? \nYour products will disappear')

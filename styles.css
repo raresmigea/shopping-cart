@@ -28,6 +28,7 @@ body {
   border-radius: 10px;
   overflow: hidden;
   margin-top: 50px;
+  min-height: 500px;
 }
 
 .first-section {
@@ -237,5 +238,8 @@ body {
 }
 
 .final-part {
-  padding-top: 100px;
+  margin-bottom: 70px;
+  bottom: 0px;
+  position: absolute;
+  width: 82%;
 }
