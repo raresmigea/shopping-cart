@@ -42,44 +42,25 @@ $('#2')
       .text(quantity * price + '€');
   });
 
-function total() {
-  var subtotal0 = parseFloat(
-    $('#0').find('.cart-subtotal').text().replace('€', '')
-  );
-
-  var subtotal1 = parseFloat(
-    $('#1').find('.cart-subtotal').text().replace('€', '')
-  );
-
-  var subtotal2 = parseFloat(
-    $('#2').find('.cart-subtotal').text().replace('€', '')
-  );
-
-  var quantity0 = parseFloat($('#0').find('.cart-quantity-input').val());
-  var quantity1 = parseFloat($('#1').find('.cart-quantity-input').val());
-  var quantity2 = parseFloat($('#2').find('.cart-quantity-input').val());
-
-  var totalQuantity = quantity0 + quantity1 + quantity2;
-
-  var total = subtotal0 + subtotal1 + subtotal2;
-
+function computeTotalValues() {
+  const total = [...$('.cart-items .cart-subtotal')]
+    .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
+    .reduce((a, b) => a + b, 0);
   $('.cart-total-price').text(total + '€');
+
+  const totalQuantity = $.map(
+    $('.cart-items .cart-quantity-input'),
+    (input) => +input.value
+  ).reduce((a, b) => a + b, 0);
   $('.items-number').text(totalQuantity + ' items');
 }
-
-// function total() {
-//   var total = [...$('.cart-row .cart-subtotal')]
-//     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
-//     .reduce((a, b) => a + b, 0);
-//   $('.cart-total-price').text(total + '€');
-// }
 
 $('.plus').on('click', function () {
   var increment = parseInt($(this).siblings('input').val());
   increment++;
   $(this).siblings('input').val(increment);
   subTotal($(this));
-  total();
+  computeTotalValues();
 });
 
 $('.minus').on('click', function () {
@@ -87,8 +68,17 @@ $('.minus').on('click', function () {
   if (decrement) {
     decrement--;
   }
-  console.log($(this).siblings('input').val());
   $(this).siblings('input').val(decrement);
   subTotal($(this));
-  total();
+  computeTotalValues();
+});
+
+$('.btn-primary').on('click', function () {
+  if (
+    confirm('Are you sure you want to checkout? \nYour products will disappear')
+  ) {
+    $('.cart-total-price').text('0 €');
+    $('.items-number').text('0 items');
+    $('.cart-quantity-input').val('0');
+  }
 });
