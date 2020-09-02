@@ -2,7 +2,6 @@ $('#0')
   .find('.cart-quantity-input')
   .change(function () {
     var quantity = parseFloat($('#0').find('.cart-quantity-input').val());
-
     var price = parseFloat($('#0').find('.cart-price').text().replace('€', ''));
 
     $('#0')
@@ -60,6 +59,13 @@ function total() {
 
   $('.cart-total-price').text(total + '€');
 }
+
+// function total() {
+//   var total = [...$('.cart-row .cart-subtotal')]
+//     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
+//     .reduce((a, b) => a + b, 0);
+//   $('.cart-total-price').text(total + '€');
+// }
 
 $('.plus').on('click', function () {
   var increment = parseInt($(this).siblings('input').val());

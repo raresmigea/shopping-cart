@@ -9,7 +9,7 @@
     <div class="container">
       <div class="first-section">
         <h2 class="section-header">Shopping cart</h2>
-        <hr />
+        <hr class="main-line" />
         <div class="cart-row">
           <span class="cart-item cart-header cart-column-title"
             >Product details</span
@@ -111,11 +111,24 @@
         <div class="cart-total">
           <h2 class="section-header summary-title">Order Summary</h2>
           <hr />
-          <div class="items-number">0 items</div>
+          <div class="items-and-total">
+            <span class="items-number">0 items</span>
+            <span class="cart-total-price">0€</span>
+          </div>
           <hr />
-          <strong class="cart-total-title">Total cost</strong>
-          <span class="cart-total-price">0€</span>
-          <hr class="btn-line" />
+          <div class="items-discount">Discounts</div>
+          <div class="items-and-total">
+            <span class="items-number">0 items</span>
+            <span class="cart-total-price">0€</span>
+          </div>
+          <hr />
+          <div class="final-part">
+            <hr />
+            <div class="items-and-total">
+              <div class="cart-total-title">Total cost</div>
+              <span class="cart-total-price">0€</span>
+            </div>
+          </div>
         </div>
 
         <button class="btn btn-primary" type="button">Checkout</button>
