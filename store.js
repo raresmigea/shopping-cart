@@ -20,6 +20,7 @@ $('#1')
       .find('.cart-subtotal')
       .text(quantity * price + '€');
   });
+
 $('#2')
   .find('.cart-quantity-input')
   .change(function () {
