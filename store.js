@@ -24,8 +24,8 @@ $('#2')
   .find('.cart-quantity-input')
   .change(function () {
     var quantity = parseFloat($('#2').find('.cart-quantity-input').val());
-
     var price = parseFloat($('#2').find('.cart-price').text().replace('€', ''));
+
     $('#2')
       .find('.cart-subtotal')
       .text(quantity * price + '€');
@@ -37,6 +37,7 @@ function subTotal(element) {
   var price = parseFloat(
     element.closest('.cart-row').find('.cart-price').text().replace('€', '')
   );
+
   $(element)
     .closest('.cart-row')
     .find('.cart-subtotal')
@@ -48,18 +49,21 @@ function computeTotalValues() {
   const total = [...$('.cart-items .cart-subtotal')]
     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
     .reduce((a, b) => a + b, 0);
+
   $('.cart-total-price').text(total + '€');
 
   const totalQuantity = $.map(
     $('.cart-items .cart-quantity-input'),
     (input) => +input.value
   ).reduce((a, b) => a + b, 0);
+
   $('.items-number').text(totalQuantity + ' items');
 }
 
 // increase number of items
 $('.plus').on('click', function () {
   var increment = parseInt($(this).siblings('input').val());
+
   increment++;
   $(this).siblings('input').val(increment);
   subTotal($(this));
@@ -69,6 +73,7 @@ $('.plus').on('click', function () {
 // decrease number of items
 $('.minus').on('click', function () {
   var decrement = parseInt($(this).siblings('input').val());
+
   if (decrement) {
     decrement--;
   }
