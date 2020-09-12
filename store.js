@@ -13,7 +13,6 @@ $('#1')
   .find('.cart-quantity-input')
   .change(function () {
     var quantity = parseFloat($('#1').find('.cart-quantity-input').val());
-
     var price = parseFloat($('#1').find('.cart-price').text().replace('€', ''));
 
     $('#1')
