@@ -32,6 +32,7 @@ $('#2')
   });
 
 // compute subtotal sum
+
 function subTotal(element) {
   var quantity = element.siblings('.cart-quantity-input').val();
   var price = parseFloat(
@@ -45,6 +46,7 @@ function subTotal(element) {
 }
 
 // compute total sum and number of items
+
 function computeTotalValues() {
   const total = [...$('.cart-items .cart-subtotal')]
     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
@@ -61,6 +63,7 @@ function computeTotalValues() {
 }
 
 // increase number of items
+
 $('.plus').on('click', function () {
   var increment = parseInt($(this).siblings('input').val());
 
@@ -71,6 +74,7 @@ $('.plus').on('click', function () {
 });
 
 // decrease number of items
+
 $('.minus').on('click', function () {
   var decrement = parseInt($(this).siblings('input').val());
 
@@ -83,6 +87,7 @@ $('.minus').on('click', function () {
 });
 
 // checkout button clicked
+
 $('.btn-primary').on('click', function () {
   if (
     confirm('Are you sure you want to checkout? \nYour products will disappear')
