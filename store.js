@@ -1,3 +1,4 @@
+// selecting elements
 $('#0')
   .find('.cart-quantity-input')
   .change(function () {
