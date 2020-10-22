@@ -2,8 +2,10 @@
 $('#0')
   .find('.cart-quantity-input')
   .change(function () {
-    var quantity = parseFloat($('#0').find('.cart-quantity-input').val());
-    var price = parseFloat($('#0').find('.cart-price').text().replace('€', ''));
+    const quantity = parseFloat($('#0').find('.cart-quantity-input').val());
+    const price = parseFloat(
+      $('#0').find('.cart-price').text().replace('€', '')
+    );
 
     $('#0')
       .find('.cart-subtotal')
@@ -13,8 +15,10 @@ $('#0')
 $('#1')
   .find('.cart-quantity-input')
   .change(function () {
-    var quantity = parseFloat($('#1').find('.cart-quantity-input').val());
-    var price = parseFloat($('#1').find('.cart-price').text().replace('€', ''));
+    const quantity = parseFloat($('#1').find('.cart-quantity-input').val());
+    const price = parseFloat(
+      $('#1').find('.cart-price').text().replace('€', '')
+    );
 
     $('#1')
       .find('.cart-subtotal')
@@ -24,8 +28,10 @@ $('#1')
 $('#2')
   .find('.cart-quantity-input')
   .change(function () {
-    var quantity = parseFloat($('#2').find('.cart-quantity-input').val());
-    var price = parseFloat($('#2').find('.cart-price').text().replace('€', ''));
+    const quantity = parseFloat($('#2').find('.cart-quantity-input').val());
+    const price = parseFloat(
+      $('#2').find('.cart-price').text().replace('€', '')
+    );
 
     $('#2')
       .find('.cart-subtotal')
@@ -34,8 +40,8 @@ $('#2')
 
 // compute subtotal sum
 function subTotal(element) {
-  var quantity = element.siblings('.cart-quantity-input').val();
-  var price = parseFloat(
+  const quantity = element.siblings('.cart-quantity-input').val();
+  const price = parseFloat(
     element.closest('.cart-row').find('.cart-price').text().replace('€', '')
   );
 
@@ -63,7 +69,7 @@ function computeTotalValues() {
 
 // increase number of items
 $('.plus').on('click', function () {
-  var increment = parseInt($(this).siblings('input').val());
+  const increment = parseInt($(this).siblings('input').val());
 
   increment++;
   $(this).siblings('input').val(increment);
@@ -73,7 +79,7 @@ $('.plus').on('click', function () {
 
 // decrease number of items
 $('.minus').on('click', function () {
-  var decrement = parseInt($(this).siblings('input').val());
+  const decrement = parseInt($(this).siblings('input').val());
 
   if (decrement) {
     decrement--;
