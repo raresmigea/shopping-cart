@@ -2,10 +2,8 @@
 $('#0')
   .find('.cart-quantity-input')
   .change(function () {
-    const quantity = parseFloat($('#0').find('.cart-quantity-input').val());
-    const price = parseFloat(
-      $('#0').find('.cart-price').text().replace('€', '')
-    );
+    let quantity = parseFloat($('#0').find('.cart-quantity-input').val());
+    let price = parseFloat($('#0').find('.cart-price').text().replace('€', ''));
 
     $('#0')
       .find('.cart-subtotal')
@@ -15,10 +13,8 @@ $('#0')
 $('#1')
   .find('.cart-quantity-input')
   .change(function () {
-    const quantity = parseFloat($('#1').find('.cart-quantity-input').val());
-    const price = parseFloat(
-      $('#1').find('.cart-price').text().replace('€', '')
-    );
+    let quantity = parseFloat($('#1').find('.cart-quantity-input').val());
+    let price = parseFloat($('#1').find('.cart-price').text().replace('€', ''));
 
     $('#1')
       .find('.cart-subtotal')
@@ -28,10 +24,8 @@ $('#1')
 $('#2')
   .find('.cart-quantity-input')
   .change(function () {
-    const quantity = parseFloat($('#2').find('.cart-quantity-input').val());
-    const price = parseFloat(
-      $('#2').find('.cart-price').text().replace('€', '')
-    );
+    let quantity = parseFloat($('#2').find('.cart-quantity-input').val());
+    let price = parseFloat($('#2').find('.cart-price').text().replace('€', ''));
 
     $('#2')
       .find('.cart-subtotal')
@@ -40,8 +34,8 @@ $('#2')
 
 // compute subtotal sum
 function subTotal(element) {
-  const quantity = element.siblings('.cart-quantity-input').val();
-  const price = parseFloat(
+  let quantity = element.siblings('.cart-quantity-input').val();
+  let price = parseFloat(
     element.closest('.cart-row').find('.cart-price').text().replace('€', '')
   );
 
@@ -53,13 +47,13 @@ function subTotal(element) {
 
 // compute total sum and number of items
 function computeTotalValues() {
-  const total = [...$('.cart-items .cart-subtotal')]
+  let total = [...$('.cart-items .cart-subtotal')]
     .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
     .reduce((a, b) => a + b, 0);
 
   $('.cart-total-price').text(total + '€');
 
-  const totalQuantity = $.map(
+  let totalQuantity = $.map(
     $('.cart-items .cart-quantity-input'),
     (input) => +input.value
   ).reduce((a, b) => a + b, 0);
@@ -69,7 +63,7 @@ function computeTotalValues() {
 
 // increase number of items
 $('.plus').on('click', function () {
-  const increment = parseInt($(this).siblings('input').val());
+  let increment = parseInt($(this).siblings('input').val());
 
   increment++;
   $(this).siblings('input').val(increment);
@@ -79,7 +73,7 @@ $('.plus').on('click', function () {
 
 // decrease number of items
 $('.minus').on('click', function () {
-  const decrement = parseInt($(this).siblings('input').val());
+  let decrement = parseInt($(this).siblings('input').val());
 
   if (decrement) {
     decrement--;
