@@ -113,6 +113,11 @@ body {
   text-transform: uppercase;
 }
 
+.cart-price:after,
+.cart-subtotal:after {
+  content: '€';
+}
+
 .cart-price {
   display: flex;
   justify-content: center;
@@ -199,6 +204,7 @@ body {
 .numerical-values {
   color: #bc6cff;
   font-size: 34px;
+  user-select: none;
 }
 
 .numerical-values:hover {
