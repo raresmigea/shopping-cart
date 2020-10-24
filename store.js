@@ -1,59 +1,32 @@
 // selecting elements
-$('#0')
-  .find('.cart-quantity-input')
-  .change(function () {
-    let quantity = parseFloat($('#0').find('.cart-quantity-input').val());
-    let price = parseFloat($('#0').find('.cart-price').text().replace('€', ''));
+$('.cart-quantity-input').on('change', function () {
+  const quantity = this.value;
+  const $row = $(this).closest('.cart-row');
+  const price = $row.find('.cart-price').text();
+  $row.find('.cart-subtotal').text(quantity * price);
+});
 
-    $('#0')
-      .find('.cart-subtotal')
-      .text(quantity * price + '€');
-  });
-
-$('#1')
-  .find('.cart-quantity-input')
-  .change(function () {
-    let quantity = parseFloat($('#1').find('.cart-quantity-input').val());
-    let price = parseFloat($('#1').find('.cart-price').text().replace('€', ''));
-
-    $('#1')
-      .find('.cart-subtotal')
-      .text(quantity * price + '€');
-  });
-
-$('#2')
-  .find('.cart-quantity-input')
-  .change(function () {
-    let quantity = parseFloat($('#2').find('.cart-quantity-input').val());
-    let price = parseFloat($('#2').find('.cart-price').text().replace('€', ''));
-
-    $('#2')
-      .find('.cart-subtotal')
-      .text(quantity * price + '€');
-  });
-
-// compute subtotal sum
-function subTotal(element) {
-  let quantity = element.siblings('.cart-quantity-input').val();
-  let price = parseFloat(
-    element.closest('.cart-row').find('.cart-price').text().replace('€', '')
+function calculateAndRenderSubtotal(element) {
+  const quantity = element.siblings('.cart-quantity-input').val();
+  const price = parseFloat(
+    element.closest('.cart-row').find('.cart-price').text()
   );
 
   $(element)
     .closest('.cart-row')
     .find('.cart-subtotal')
-    .text(price * quantity + '€');
+    .text(price * quantity);
 }
 
 // compute total sum and number of items
 function computeTotalValues() {
-  let total = [...$('.cart-items .cart-subtotal')]
-    .map((subtotalElm) => Number(subtotalElm.textContent.replace('€', '')))
+  const total = [...$('.cart-items .cart-subtotal')]
+    .map((subtotalElm) => Number(subtotalElm.textContent))
     .reduce((a, b) => a + b, 0);
 
-  $('.cart-total-price').text(total + '€');
+  $('.cart-total-price').text(total);
 
-  let totalQuantity = $.map(
+  const totalQuantity = $.map(
     $('.cart-items .cart-quantity-input'),
     (input) => +input.value
   ).reduce((a, b) => a + b, 0);
@@ -62,24 +35,13 @@ function computeTotalValues() {
 }
 
 // increase number of items
-$('.plus').on('click', function () {
-  let increment = parseInt($(this).siblings('input').val());
-
-  increment++;
-  $(this).siblings('input').val(increment);
-  subTotal($(this));
-  computeTotalValues();
-});
-
-// decrease number of items
-$('.minus').on('click', function () {
-  let decrement = parseInt($(this).siblings('input').val());
-
-  if (decrement) {
-    decrement--;
-  }
-  $(this).siblings('input').val(decrement);
-  subTotal($(this));
+$('.plus, .minus').on('click', function () {
+  const currentValue = parseInt($(this).siblings('input').val());
+  const addValue = $(this).is('.plus') ? 1 : -1;
+  $(this)
+    .siblings('input')
+    .val(Math.max(0, currentValue + addValue));
+  calculateAndRenderSubtotal($(this));
   computeTotalValues();
 });
 
@@ -88,8 +50,9 @@ $('.btn-primary').on('click', function () {
   if (
     confirm('Are you sure you want to checkout? \nYour products will disappear')
   ) {
-    $('.cart-total-price').text('0 €');
+    $('.cart-total-price').text('0');
     $('.items-number').text('0 items');
     $('.cart-quantity-input').val('0');
+    $('.cart-subtotal').text(0);
   }
 });
