@@ -38,6 +38,7 @@ function computeTotalValues() {
 $('.plus, .minus').on('click', function () {
   const currentValue = parseInt($(this).siblings('input').val());
   const addValue = $(this).is('.plus') ? 1 : -1;
+
   $(this)
     .siblings('input')
     .val(Math.max(0, currentValue + addValue));
