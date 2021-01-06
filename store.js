@@ -18,7 +18,7 @@ function calculateAndRenderSubtotal(element) {
     .text(price * quantity);
 }
 
-// compute total sum, number of items
+// compute total sum and number of items
 function computeTotalValues() {
   const total = [...$('.cart-items .cart-subtotal')]
     .map((subtotalElm) => Number(subtotalElm.textContent))
